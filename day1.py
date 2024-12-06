@@ -1,18 +1,20 @@
 import pandas as pd
 
-df = pd.read_csv("input.csv", sep=r"\s+", lineterminator='\r', header=None, names=["List1", "List2"])
+path_to_input_file="input.csv"
+
+df = pd.read_csv(path_to_input_file, sep=r"\s+", lineterminator='\r', header=None, names=["List1", "List2"])
 
 df_sorted = df.sort_values(['List1', 'List2'])
 
 list1 = sorted(df['List1'].values.tolist())
 list2 = sorted(df['List2'].values.tolist())
 
-sum = 0
+answer1 = 0
 
 for x, y in zip(list1, list2):
-    sum = sum + abs(x - y)
+    answer1 = answer1 + abs(x - y)
 
-print(sum)
+print(answer1)
 
 counter = 0
 
@@ -31,8 +33,8 @@ def make_dict(list1, list2):
 
 almost = make_dict(list1, list2)
 
-answer = 0
+answer2 = 0
 for key, value in almost.items():
-    answer = answer + (key * value)
+    answer2 = answer2 + (key * value)
 
-print(answer)
+print(answer2)
